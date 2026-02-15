@@ -6,8 +6,47 @@ sources:
     database: kestra-taxi-pipeline
     schema: zoomcamp
     tables:
+      # Yellow Tripdata
       - name: yellow_tripdata
+      
+      # Green Tripdata 2019
       - name: green_tripdata_2019_01
       - name: green_tripdata_2019_02
+      - name: green_tripdata_2019_03
+      - name: green_tripdata_2019_04
+      - name: green_tripdata_2019_05
+      - name: green_tripdata_2019_06
+      - name: green_tripdata_2019_07
+      - name: green_tripdata_2019_08
+      - name: green_tripdata_2019_09
+      - name: green_tripdata_2019_10
+      - name: green_tripdata_2019_11
+      - name: green_tripdata_2019_12
+      
+      # Green Tripdata 2020
       - name: green_tripdata_2020_01
       - name: green_tripdata_2020_02
+      - name: green_tripdata_2020_03
+      - name: green_tripdata_2020_04
+      - name: green_tripdata_2020_05
+      - name: green_tripdata_2020_06
+      - name: green_tripdata_2020_07
+      - name: green_tripdata_2020_08
+      - name: green_tripdata_2020_09
+      - name: green_tripdata_2020_10
+      - name: green_tripdata_2020_11
+      - name: green_tripdata_2020_12
+      
+      # Yellow Tripdata 2019
+      - name: yellow_tripdata_2019_01
+      - name: yellow_tripdata_2019_02
+      - name: yellow_tripdata_2019_03
+      
+      # Yellow Tripdata 2020
+      - name: yellow_tripdata_2020_01
+      - name: yellow_tripdata_2020_02
+      - name: yellow_tripdata_2020_03
+      - name: yellow_tripdata_2020_04
+      - name: yellow_tripdata_2020_05
+      - name: yellow_tripdata_2020_06
+      - name: yellow_tripdata_2020_07
