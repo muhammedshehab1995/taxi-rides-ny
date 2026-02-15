@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: raw_data
+  - name: raw
     description: "Raw data sources for NYC taxi rides"
     database: kestra-taxi-pipeline
     schema: zoomcamp
@@ -10,3 +10,4 @@ sources:
       - name: green_tripdata_2019_01
       - name: green_tripdata_2019_02
       - name: green_tripdata_2020_01
+      - name: green_tripdata_2020_02
