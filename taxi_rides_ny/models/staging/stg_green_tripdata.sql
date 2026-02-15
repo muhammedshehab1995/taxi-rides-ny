@@ -1,5 +1,54 @@
-with source as (
+with 
+
+-- Union all monthly green tripdata tables
+unioned as (
     select * from {{ source('raw', 'green_tripdata_2019_01') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_02') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_03') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_04') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_05') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_06') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_07') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_08') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_09') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_10') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_11') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2019_12') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_01') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_02') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_03') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_04') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_05') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_06') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_07') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_08') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_09') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_10') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_11') }}
+    union all
+    select * from {{ source('raw', 'green_tripdata_2020_12') }}
 ),
 
 renamed as (
@@ -30,7 +79,7 @@ renamed as (
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
         {{ safe_cast('payment_type', 'integer') }} as payment_type
-    from source
+    from unioned
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )

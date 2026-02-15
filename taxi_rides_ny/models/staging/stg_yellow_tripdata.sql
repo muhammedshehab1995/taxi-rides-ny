@@ -1,5 +1,26 @@
-with source as (
-    select * from {{ source('raw', 'yellow_tripdata') }}
+with 
+
+-- Union all monthly yellow tripdata tables
+unioned as (
+    select * from {{ source('raw', 'yellow_tripdata_2019_01') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2019_02') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2019_03') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_01') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_02') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_03') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_04') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_05') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_06') }}
+    union all
+    select * from {{ source('raw', 'yellow_tripdata_2020_07') }}
 ),
 
 renamed as (
@@ -29,7 +50,7 @@ renamed as (
         cast(total_amount as numeric) as total_amount,
         cast(payment_type as integer) as payment_type
 
-    from source
+    from unioned
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )
